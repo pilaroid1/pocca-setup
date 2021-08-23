@@ -39,6 +39,9 @@ wpa_supplicant_file.write("         psk=\""+wifi_password+"\"\n")
 wpa_supplicant_file.write("}\n")
 wpa_supplicant_file.close()
 
+print(" Connecting to " + wifi_name)
+app.system.change_wifi()
+
 print(" Changing name to " + name)
 app.system.change_name(name)
 
@@ -53,5 +56,4 @@ if app.settings["APPLICATION"]["type"] != app.system.info["current_app"]:
   print("Changing application from " + app.system.info["current_app"] + " to " + app.settings["APPLICATION"]["type"])
   app.system.change_app(app.settings["APPLICATION"]["type"])
 
-print(" Connecting to " + wifi_name)
-app.system.change_wifi()
+
